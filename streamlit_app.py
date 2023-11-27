@@ -19,9 +19,9 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 #display the table on the page
 streamlit.dataframe(fruits_to_show)
 
-streamlit.header("Fruityvice Fruit Advice!")
+streamlit.header('Fruityvice Fruit Advice!')
 try:
-  fruit_choice = streamlit.text_input('What fruit would you like information about?',)
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
       streamlit.error('Please select a fruit to get information.")
   else:
@@ -44,16 +44,16 @@ except URLError as e:
 
 #import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
-my_data_row = my_cur.fetchall()
-streamlit.header("The fruit load list contains:")
-streamlit.dataframe(my_data_rows)
+#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+#my_cur = my_cnx.cursor()
+#my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
+#my_data_row = my_cur.fetchall()
+#streamlit.header("The fruit load list contains:")
+#streamlit.dataframe(my_data_rows)
 
-streamlit.write('Thanks for adding', add_my_fruit)
+#streamlit.write('Thanks for adding', add_my_fruit)
 
 #This will not work correctly, but just go with it for now
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+#my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+#my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+#my_cur.execute("insert into fruit_load_list values ('from streamlit')")
